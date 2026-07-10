@@ -5,6 +5,9 @@ import org.springframework.stereotype.Repository;
 
 import com.nav.relationships.entity.Client;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 @Repository
 public interface ClientRepo extends JpaRepository<Client, Long> {
 

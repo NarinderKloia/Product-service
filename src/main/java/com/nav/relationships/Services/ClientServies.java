@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.nav.relationships.entity.Client;
 
+
 @Service
 public interface ClientServies {
 
