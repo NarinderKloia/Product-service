@@ -8,9 +8,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Client {
@@ -31,4 +35,9 @@ public class Client {
     @OneToOne
     @JoinColumn(name = "Product_id")
     private Product product;
+
+    public void setClientName(String clientName2) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setClientName'");
+    }
 }
