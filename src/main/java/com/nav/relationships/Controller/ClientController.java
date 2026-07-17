@@ -27,8 +27,9 @@ public class ClientController {
     public final ClientServicesImpl services;
 
     @PostMapping
-    Client addClient(@RequestBody Client client) {
-        return services.addClient(client);
+    ResponseEntity<Client> addClient(
+            @RequestBody Client client) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(services.addClient(client));
     };
 
     @GetMapping

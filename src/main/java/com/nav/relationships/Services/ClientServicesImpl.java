@@ -34,12 +34,14 @@ public class ClientServicesImpl implements ClientServies {
     @Override
     public Client UpdateClient(Long id, Client client) {
         Client existing = getClientById(id);
-        // existing.setClientName(client.get)
-       return null;
+        existing.setClientName(client.getClientName());
+        existing.setClientAddress(client.getClientAddress());
+       return repo.save(existing);
     }
 
     @Override
     public String deleteClient(Long id) {
+        
         repo.deleteById(id);
         return "Client Deleted";
     }
