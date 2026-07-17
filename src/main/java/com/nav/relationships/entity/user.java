@@ -1,6 +1,5 @@
 package com.nav.relationships.entity;
 
-import org.hibernate.mapping.Column;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
