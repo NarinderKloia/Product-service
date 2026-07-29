@@ -8,4 +8,5 @@ import com.nav.relationships.Dto.createUserDto;
 public interface userService{
      UserDto saveUser(createUserDto dto);
      public List<UserDto> getAllUsers();
+     public UserDto getUserById(Long id);
 }

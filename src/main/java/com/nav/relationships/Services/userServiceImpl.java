@@ -3,7 +3,6 @@ package com.nav.relationships.Services;
 import java.util.ArrayList;
 
 import java.util.List;
-import java.util.ArrayList;
 import org.springframework.stereotype.Service;
 
 import com.nav.relationships.Dto.UserDto;
@@ -36,6 +35,10 @@ public class userServiceImpl implements userService {
             userdtoList.add(userdto);
         }
         return userdtoList;
+    }
+    public UserDto getUserById(Long id){
+        user users = repo.findById(id).orElseThrow();
+        return new UserDto(users.getId(),users.getName(),users.getEmail());
     }
     
 }

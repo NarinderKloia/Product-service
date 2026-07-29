@@ -35,9 +35,4 @@ public class Client {
     @OneToOne
     @JoinColumn(name = "Product_id")
     private Product product;
-
-    public void setClientName(String clientName2) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setClientName'");
-    }
 }
