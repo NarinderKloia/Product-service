@@ -9,8 +9,6 @@ import com.nav.relationships.Dto.CreateStudentDto;
 import com.nav.relationships.Dto.StudentDto;
 import com.nav.relationships.entity.Student;
 import com.nav.relationships.repositories.StudentRepo;
-
-import jakarta.persistence.Transient;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 
