@@ -10,6 +10,8 @@ import com.nav.relationships.Dto.StudentDto;
 import com.nav.relationships.entity.Student;
 import com.nav.relationships.repositories.StudentRepo;
 
+import jakarta.persistence.Transient;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 
 @Service
@@ -37,7 +39,7 @@ public class StudentServiceImpl implements StudentServices {
         for (Student value : student) {
             StudentDto studentDto = new StudentDto(value.getStudentId(), value.getStudentName(), value.getCourse(),
                     value.getEmail());
-                    studentDtoList.add(studentDto);
+            studentDtoList.add(studentDto);
         }
         return studentDtoList;
     }
@@ -45,18 +47,41 @@ public class StudentServiceImpl implements StudentServices {
     @Override
     public StudentDto getStudentById(Long id) {
         Student student = repo.findById(id).orElseThrow();
-        return new StudentDto(student.getStudentId(),student.getStudentName(),student.getCourse(),student.getEmail());
+        return new StudentDto(student.getStudentId(), student.getStudentName(), student.getCourse(),
+                student.getEmail());
     }
 
     public void deleteById(Long id) {
         repo.deleteById(id);
     }
 
-    @Override
-    public StudentDto updateStudentById(Long id) {
-        
-        return null;
-       
+    @Transactional
+    public StudentDto updateStudentById(Long id, CreateStudentDto updateStudent) {
+        Student student = repo.findById(id).orElseThrow();
+        student.setStudentName(updateStudent.getStudentName());
+        student.setCourse(updateStudent.getCourse());
+        student.setEmail(updateStudent.getEmail());
+        return new StudentDto(student.getStudentId(), student.getStudentName(), student.getCourse(),
+                student.getEmail());
+
     }
+
+    @Transactional
+    public StudentDto patchStudent(Long id, CreateStudentDto patchStudent) {
+        Student student = repo.findById(id).orElseThrow();
+        if (patchStudent.getStudentName() != null) {
+            student.setStudentName(patchStudent.getStudentName());
+        }
+        if (patchStudent.getCourse() != null) {
+            student.setCourse(patchStudent.getCourse());
+        }
+        if (patchStudent.getEmail() != null) {
+            student.setEmail(patchStudent.getEmail());
+        }
+
+        return new StudentDto(student.getStudentId(), student.getStudentName(), student.getCourse(),
+                student.getEmail());
+
+    };
 
 }

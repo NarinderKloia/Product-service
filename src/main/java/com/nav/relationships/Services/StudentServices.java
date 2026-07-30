@@ -15,6 +15,8 @@ public interface StudentServices {
 
     public void deleteById(Long id);
 
-    public StudentDto updateStudentById(Long id);
+    public StudentDto updateStudentById(Long id, CreateStudentDto updateStudent);
+
+    public StudentDto patchStudent(Long id, CreateStudentDto patchStudent);
 
 }
