@@ -40,4 +40,16 @@ public class DrivingLicenceServiceImpl implements DrivingLicenceService {
 
     }
 
+    @Override
+    public DrivingLicenceDTO updateByUserId(Long userId, CreateLicenceDTO dto) {
+        DrivingLicence licences = dRepo.findByUserId(userId).orElseThrow();
+        licences.setLicenceNumber(dto.getLicenceNumber());
+        licences.setLicenceType(dto.getLicenceType());
+        DrivingLicence licence = dRepo.save(licences);
+
+        return new DrivingLicenceDTO(licence.getId(), licence.getLicenceNumber(), licence.getLicenceType(),
+                licence.getUser());
+
+    }
+
 }
