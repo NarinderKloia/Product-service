@@ -1,11 +1,14 @@
 package com.nav.relationships.entity;
 
-import jakarta.persistence.Column;
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,17 +19,17 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Student {
+public class TAs {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long StudentId;
-    @Column(name = "name", nullable = false)
-    private String StudentName;
-    @Column(name = "course", nullable = false)
-    private String Course;
-    private String Email;
+    private Long id;
+    private String groupName;
 
-    // @OneToMany(mappedBy = "groupMembers")
-    // private TAs ta;
+    // @OneToOne
+    // @JoinColumn(name = "TA")
+    // private Student TA;
 
+    // @ManyToOne
+    // @JoinColumn(name = "Members")
+    // private Student groupMembers;
 }
