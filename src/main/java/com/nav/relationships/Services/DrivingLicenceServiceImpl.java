@@ -52,4 +52,11 @@ public class DrivingLicenceServiceImpl implements DrivingLicenceService {
 
     }
 
+    public DrivingLicenceDTO getAllLicence(Long userId) {
+        DrivingLicence licence = dRepo.findByUserId(userId).orElseThrow();
+        return new DrivingLicenceDTO(licence.getId(), licence.getLicenceNumber(), licence.getLicenceType(),
+                licence.getUser());
+
+    }
+
 }

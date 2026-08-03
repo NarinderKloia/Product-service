@@ -13,4 +13,6 @@ public interface DrivingLicenceService {
 
     public DrivingLicenceDTO updateByUserId(Long userId, CreateLicenceDTO dto);
 
+    public DrivingLicenceDTO getAllLicence(Long userId);
+
 }

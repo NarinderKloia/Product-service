@@ -1,6 +1,7 @@
 package com.nav.relationships.Controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+// import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -31,8 +32,14 @@ public class DrivingLicenceController {
     }
 
     @PutMapping("/search")
-    public DrivingLicenceDTO updateByUserId(@PathVariable Long userId,@RequestBody CreateLicenceDTO dto) {
+    public DrivingLicenceDTO updateByUserId(@PathVariable Long userId, @RequestBody CreateLicenceDTO dto) {
         return services.updateByUserId(userId, dto);
+
+    };
+
+    @GetMapping
+    public DrivingLicenceDTO getAllLicence(@PathVariable Long userId) {
+        return services.getAllLicence(userId);
 
     };
 
